@@ -35,3 +35,7 @@ require __DIR__.'/auth.php';
 
 Route::get('admin/dashboard',[AdminController::class,'home'])->middleware(['auth','role:admin'])->name('admin.dashboard');
 Route::get('vendor/dashboard',[VendorController::class,'home'])->middleware(['auth','role:vendor'])->name('admin.dashboard');
+
+
+
+Route::get('admin/login',[AdminController::class,'login'])->name('admin.login');
