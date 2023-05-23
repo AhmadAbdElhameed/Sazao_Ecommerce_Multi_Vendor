@@ -26,5 +26,7 @@ Route::post('profile/update',[ProfileController::class,'update'])->name('profile
 
 
 
+Route::post('profile/update/password',[ProfileController::class,'updatePassword'])->name('profile.update.password');
+
 
 
