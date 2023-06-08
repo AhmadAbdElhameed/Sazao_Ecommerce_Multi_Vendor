@@ -33,7 +33,8 @@ class ProfileController extends Controller
         $user->email = $request->email;
 
         $user->save();
-        toast('Profile updated successfully','success');
+        toastr()->success('Oops! Something went wrong!');
+//        toast('Profile updated successfully','success');
         return redirect(route('admin.profile'));
     }
 

@@ -37,11 +37,27 @@
 
                                 <div class="form-group col-md-6 col-12">
                                     <label>Name</label>
-                                    <input  type="text" name="name" class="form-control" value="{{Auth::user()->name}}" required="">
+                                    <input  type="text" name="name" class="form-control" value="{{Auth::user()->name}}">
+                                    <div>
+                                        @error('name')
+                                        @php
+                                            toast('Name required','error');
+                                        @endphp
+                                        <div class="alert alert-danger">{{$message}}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-6 col-12">
                                     <label>Email</label>
-                                    <input type="text" name="email" class="form-control" value="{{Auth::user()->email}}" required="">
+                                    <input type="text" name="email" class="form-control" value="{{Auth::user()->email}}">
+                                    <div>
+                                        @error('email')
+                                        @php
+                                            toast('Email required','error');
+                                        @endphp
+                                        <div class="alert alert-danger">{{$message}}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -67,16 +83,46 @@
                                 <div class="form-group col-12">
                                     <label>Current Password</label>
                                     <input  type="password" name="current_password" class="form-control">
+
+                                    <div>
+                                        @error('current_password')
+                                        @php
+                                            toastr()->error('Oops! Something went wrong!');
+                                        @endphp
+
+{{--                                            @php--}}
+{{--                                                toast('The credentials you supplied were not correct','error');--}}
+{{--                                            @endphp--}}
+                                            <div class="alert alert-danger">{{$message}}</div>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <div class="form-group col-12">
                                     <label>New Password</label>
                                     <input  type="password" name="password" class="form-control">
+                                    <div>
+
+                                        @error('password')
+                                        @php
+                                            toastr()->error('Oops! Something went wrong!');
+                                        @endphp
+{{--                                            @php--}}
+{{--                                                toast('The credentials you supplied were not correct','error');--}}
+{{--                                            @endphp--}}
+                                            <div class="alert alert-danger">{{$message}}</div>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <div class="form-group col-12">
                                     <label>Confirm Password</label>
                                     <input  type="password" name="password_confirmation" class="form-control">
+                                    <div>
+                                        @error('password_confirmation')
+                                        <div class="alert alert-danger">{{$message}}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
 

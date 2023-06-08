@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Admin\Profile;
 
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePasswordRequest extends FormRequest
@@ -26,4 +28,6 @@ class UpdatePasswordRequest extends FormRequest
             'password' => 'required|confirmed|min:6'
         ];
     }
+
+
 }
