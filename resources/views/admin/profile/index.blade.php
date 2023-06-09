@@ -86,13 +86,13 @@
 
                                     <div>
                                         @error('current_password')
-                                        @php
-                                            toastr()->error('Oops! Something went wrong!');
-                                        @endphp
+{{--                                        @php--}}
+{{--                                            toastr()->error('Oops! Something went wrong!');--}}
+{{--                                        @endphp--}}
 
-{{--                                            @php--}}
-{{--                                                toast('The credentials you supplied were not correct','error');--}}
-{{--                                            @endphp--}}
+                                            @php
+                                                toast('The credentials you supplied were not correct','error');
+                                            @endphp
                                             <div class="alert alert-danger">{{$message}}</div>
                                         @enderror
                                     </div>
@@ -104,12 +104,12 @@
                                     <div>
 
                                         @error('password')
-                                        @php
-                                            toastr()->error('Oops! Something went wrong!');
-                                        @endphp
-{{--                                            @php--}}
-{{--                                                toast('The credentials you supplied were not correct','error');--}}
-{{--                                            @endphp--}}
+{{--                                        @php--}}
+{{--                                            toastr()->error('Oops! Something went wrong!');--}}
+{{--                                        @endphp--}}
+                                            @php
+                                                toast('The credentials you supplied were not correct','error');
+                                            @endphp
                                             <div class="alert alert-danger">{{$message}}</div>
                                         @enderror
                                     </div>
