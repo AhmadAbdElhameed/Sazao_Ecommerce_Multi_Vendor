@@ -691,7 +691,7 @@
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="modal_slider_img">
-                                            <img src="images/zoom4.jpg" alt="product" class="img-fluid w-100">
+                                            <img src="{{asset('frontend/images/zoom4.jpg')}}" alt="product" class="img-fluid w-100">
                                         </div>
                                     </div>
                                 </div>
@@ -1097,7 +1097,7 @@
                     <div class="col-xl-2 col-6 col-sm-6 col-md-4 col-lg-3  elec cam wat">
                         <a class="wsus__hot_deals__single" href="#">
                             <div class="wsus__hot_deals__single_img">
-                                <img src="{{asset('frontend/}images/pro9.jpg')}}" alt="bag" class="img-fluid w-100">
+                                <img src="{{asset('frontend/images/pro9.jpg')}}" alt="bag" class="img-fluid w-100">
                             </div>
                             <div class="wsus__hot_deals__single_text">
                                 <h5>men's sholder bag</h5>
@@ -1133,7 +1133,7 @@
                     <div class="col-xl-2 col-6 col-sm-6 col-md-4 col-lg-3  elec cam">
                         <a class="wsus__hot_deals__single" href="#">
                             <div class="wsus__hot_deals__single_img">
-                                <img src="{{asset('frontend/}images/pro10.jpg')}}" alt="bag" class="img-fluid w-100">
+                                <img src="{{asset('frontend/images/pro10.jpg')}}" alt="bag" class="img-fluid w-100">
                             </div>
                             <div class="wsus__hot_deals__single_text">
                                 <h5>MSI gaming chair</h5>
@@ -1169,7 +1169,7 @@
                     <div class="col-xl-2 col-6 col-sm-6 col-md-4 col-lg-3  elec spk">
                         <a class="wsus__hot_deals__single" href="#">
                             <div class="wsus__hot_deals__single_img">
-                                <img src="{{asset('frontend/}images/pro2.jpg')}}" alt="bag" class="img-fluid w-100">
+                                <img src="{{asset('frontend/images/pro2.jpg')}}" alt="bag" class="img-fluid w-100">
                             </div>
                             <div class="wsus__hot_deals__single_text">
                                 <h5>men's shoes</h5>
@@ -1205,7 +1205,7 @@
                     <div class="col-xl-2 col-6 col-sm-6 col-md-4 col-lg-3  elec cam wat">
                         <a class="wsus__hot_deals__single" href="#">
                             <div class="wsus__hot_deals__single_img">
-                                <img src="{{asset('frontend/}images/pro8_8.jpg')}}" alt="bag" class="img-fluid w-100">
+                                <img src="{{asset('frontend/images/pro8_8.jpg')}}" alt="bag" class="img-fluid w-100">
                             </div>
                             <div class="wsus__hot_deals__single_text">
                                 <h5>wemen's one pcs</h5>
@@ -1241,7 +1241,7 @@
                     <div class="col-xl-2 col-6 col-sm-6 col-md-4 col-lg-3  elec wat">
                         <a class="wsus__hot_deals__single" href="#">
                             <div class="wsus__hot_deals__single_img">
-                                <img src="{{asset('frontend/}images/pro9.jpg')}}" alt="bag" class="img-fluid w-100">
+                                <img src="{{asset('frontend/images/pro9.jpg')}}" alt="bag" class="img-fluid w-100">
                             </div>
                             <div class="wsus__hot_deals__single_text">
                                 <h5>men's sholder bag</h5>
@@ -2216,8 +2216,8 @@
                     <span class="wsus__new">New</span>
                     <span class="wsus__minus">-20%</span>
                     <a class="wsus__pro_link" href="product_details.html">
-                        <img src="{{asset('frontend/images/pro8.jpg')}}')}}" alt="product" class="img-fluid w-100 img_1" />
-                        <img src="{{asset('frontend/images/pro8_8.jpg')}}')}}" alt="product" class="img-fluid w-100 img_2" />
+                        <img src="{{asset('frontend/images/pro8.jpg')}}" alt="product" class="img-fluid w-100 img_1" />
+                        <img src="{{asset('frontend/images/pro8_8.jpg')}}" alt="product" class="img-fluid w-100 img_2" />
                     </a>
                     <ul class="wsus__single_pro_icon">
                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
@@ -2245,8 +2245,8 @@
                 <div class="wsus__product_item">
                     <span class="wsus__minus">-20%</span>
                     <a class="wsus__pro_link" href="product_details.html">
-                        <img src="{{asset('frontend/images/kids_1.jpg')}}')}}" alt="product" class="img-fluid w-100 img_1" />
-                        <img src="{{asset('frontend/images/kids_2.jpg')}}')}}" alt="product" class="img-fluid w-100 img_2" />
+                        <img src="{{asset('frontend/images/kids_1.jpg')}}" alt="product" class="img-fluid w-100 img_1" />
+                        <img src="{{asset('frontend/images/kids_2.jpg')}}" alt="product" class="img-fluid w-100 img_2" />
                     </a>
                     <ul class="wsus__single_pro_icon">
                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
@@ -2274,8 +2274,8 @@
                 <div class="wsus__product_item">
                     <span class="wsus__new">New</span>
                     <a class="wsus__pro_link" href="product_details.html">
-                        <img src="{{asset('frontend/images/blazer_1.jpg')}}')}}" alt="product" class="img-fluid w-100 img_1" />
-                        <img src="{{asset('frontend/images/blazer_2.jpg')}}')}}" alt="product" class="img-fluid w-100 img_2" />
+                        <img src="{{asset('frontend/images/blazer_1.jpg')}}" alt="product" class="img-fluid w-100 img_1" />
+                        <img src="{{asset('frontend/images/blazer_2.jpg')}}" alt="product" class="img-fluid w-100 img_2" />
                     </a>
                     <ul class="wsus__single_pro_icon">
                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
@@ -2303,8 +2303,8 @@
                 <div class="wsus__product_item">
                     <span class="wsus__minus">-20%</span>
                     <a class="wsus__pro_link" href="product_details.html">
-                        <img src="{{asset('frontend/images/wemans_2.jpg')}}')}}" alt="product" class="img-fluid w-100 img_1" />
-                        <img src="{{asset('frontend/images/wemans_1.jpg')}}')}}" alt="product" class="img-fluid w-100 img_2" />
+                        <img src="{{asset('frontend/images/wemans_2.jpg')}}" alt="product" class="img-fluid w-100 img_1" />
+                        <img src="{{asset('frontend/images/wemans_1.jpg')}}" alt="product" class="img-fluid w-100 img_2" />
                     </a>
                     <ul class="wsus__single_pro_icon">
                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
@@ -2333,8 +2333,8 @@
                     <span class="wsus__new">New</span>
 
                     <a class="wsus__pro_link" href="product_details.html">
-                        <img src="{{asset('frontend/images/wemans_2.jpg')}}')}}" alt="product" class="img-fluid w-100 img_1" />
-                        <img src="{{asset('frontend/images/wemans_1.jpg')}}')}}" alt="product" class="img-fluid w-100 img_2" />
+                        <img src="{{asset('frontend/images/wemans_2.jpg')}}" alt="product" class="img-fluid w-100 img_1" />
+                        <img src="{{asset('frontend/images/wemans_1.jpg')}}" alt="product" class="img-fluid w-100 img_2" />
                     </a>
                     <ul class="wsus__single_pro_icon">
                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
