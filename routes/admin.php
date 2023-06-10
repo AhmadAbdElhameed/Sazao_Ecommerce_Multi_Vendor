@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //***     Admin Routes      ***//
+//Route::get('admin/dashboard',[AdminController::class,'home'])->middleware(['auth','role:admin'])->name('admin.dashboard');
 Route::get('dashboard',[AdminController::class,'home'])->name('dashboard');
 
 //***     Profile Routes      ***//
