@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-
+use Illuminate\Support\Facades\Session;
 class NewPasswordController extends Controller
 {
     /**
@@ -49,6 +49,8 @@ class NewPasswordController extends Controller
                 event(new PasswordReset($user));
             }
         );
+
+        toastr('Password has been reset.');
 
         // If the password was successfully reset, we will redirect the user back to
         // the application's home authenticated view. If there is an error we can
