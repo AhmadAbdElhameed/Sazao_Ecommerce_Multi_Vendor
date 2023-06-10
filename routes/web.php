@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\VendorController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\UserDashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,13 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HomeController::class,'index'])->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::group(['middleware' => ['auth' , 'verified'], 'prefix' => 'user' , 'as' => 'user.'],function(){
+    Route::get('dashboard',[UserDashboardController::class,'index'])->name('dashboard');
+
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -35,3 +37,7 @@ require __DIR__.'/auth.php';
 
 Route::get('admin/dashboard',[AdminController::class,'home'])->middleware(['auth','role:admin'])->name('admin.dashboard');
 Route::get('vendor/dashboard',[VendorController::class,'home'])->middleware(['auth','role:vendor'])->name('admin.dashboard');
+
+
+
+Route::get('admin/login',[AdminController::class,'login'])->name('admin.login');
