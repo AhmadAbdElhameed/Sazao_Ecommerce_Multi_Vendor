@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Backend\VendorController;
+use App\Http\Controllers\Backend\VendorProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,11 @@ use Illuminate\Support\Facades\Route;
 //Route::get('vendor/dashboard',[VendorController::class,'home'])->middleware(['auth','role:vendor'])->name('admin.dashboard');
 
 Route::get('dashboard',[VendorController::class,'home'])->name('dashboard');
+
+Route::get('profile',[VendorProfileController::class,'index'])->name('profile');
+Route::put('profile',[VendorProfileController::class,'update'])->name('profile.update');
+Route::post('profile',[VendorProfileController::class,'updatePassword'])->name('profile.update.password');
+
+
+
+
