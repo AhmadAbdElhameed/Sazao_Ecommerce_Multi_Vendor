@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\Profile\UpdatePasswordRequest;
 use App\Http\Requests\User\Profile\updateProfileRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,5 +34,16 @@ class UserProfileController extends Controller
         $user->save();
         toastr()->success('Profile updated successfully');
 //        toast('Profile updated successfully','success');
-        return redirect(route('user.profile'));    }
+        return redirect(route('user.profile'));
+    }
+
+    public function updatePassword(UpdatePasswordRequest $request){
+        
+        $request->user()->update([
+            'password' => bcrypt($request->password)
+        ]);
+
+        toastr()->success('Password has been updated successfully');
+        return redirect()->back();
+    }
 }
