@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\Profile\UpdatePasswordRequest;
-use App\Http\Requests\User\Profile\updateProfileRequest;
+use App\Http\Requests\Vendor\Profile\UpdatePasswordRequest;
+use App\Http\Requests\Vendor\Profile\UpdateProfileRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
-class UserProfileController extends Controller
+class VendorProfileController extends Controller
 {
     public function index(){
-        return view('frontend.dashboard.profile');
+        return view('vendor.dashboard.profile');
     }
 
     public function update(updateProfileRequest $request){
@@ -24,25 +24,26 @@ class UserProfileController extends Controller
             }
             $image = $request->image;
             $imageName = rand().'_'.$image->getClientOriginalName();
-            $image->move(public_path('uploads/user/profile'),$imageName);
-            $path = '/uploads/user/profile/'.$imageName;
+            $image->move(public_path('uploads/vendor/profile'),$imageName);
+            $path = '/uploads/vendor/profile/'.$imageName;
             $user->image = $path;
         }
         $user->name = $request->name;
         $user->email = $request->email;
 
         $user->save();
-        toastr()->success('Profile updated successfully');
+        toastr()->success('Vendor Profile Updated Successfully');
 //        toast('Profile updated successfully','success');
         return redirect()->back();
     }
 
     public function updatePassword(UpdatePasswordRequest $request){
+
         $request->user()->update([
             'password' => bcrypt($request->password)
         ]);
 
-        toastr()->success('Password has been updated successfully');
+        toastr()->success('Vendor Password has been updated successfully!');
         return redirect()->back();
     }
 }
