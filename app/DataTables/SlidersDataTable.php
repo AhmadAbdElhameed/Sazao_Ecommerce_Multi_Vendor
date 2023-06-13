@@ -29,7 +29,7 @@ class SlidersDataTable extends DataTable
                 return $editBtn . $deleteBtn;
             })
             ->addColumn('banner',function ($query){
-                $img = "<img width='100px' src='".asset($query->banner)."'></img>";
+                $img = "<img width='100px' src='".asset('uploads/sliders/'.$query->banner)."'></img>";
                 return $img;
             })->rawColumns(['banner','action'])
             ->setRowId('id');
@@ -75,6 +75,10 @@ class SlidersDataTable extends DataTable
             Column::make('id')->width(20),
             Column::make('banner')->width(70),
             Column::make('title'),
+            Column::make('type'),
+            Column::make('serial'),
+            Column::make('starting_price'),
+            Column::make('status'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

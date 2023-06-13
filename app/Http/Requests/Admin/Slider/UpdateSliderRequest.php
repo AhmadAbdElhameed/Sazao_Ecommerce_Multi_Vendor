@@ -11,7 +11,7 @@ class UpdateSliderRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class UpdateSliderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'banner' => 'nullable|image|max:2048|mimes:png,jpg,jpeg,webp',
+            'type' => 'string|max:200|min:2',
+            'title' => 'required|max:255|min:5',
+            'starting_price' => 'max:200',
+            'btn_url' => 'url',
+            'serial' => 'required|integer',
+            'status' => 'required'
         ];
     }
 }
