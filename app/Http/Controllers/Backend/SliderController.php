@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\SlidersDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Slider\StoreSliderRequest;
 use App\Http\Traits\ImageUploadTrait;
@@ -20,9 +21,9 @@ class SliderController extends Controller
     public function __construct(Slider $slider){
         $this->sliderModel = $slider;
     }
-    public function index()
+    public function index(SlidersDataTable $dataTable)
     {
-        return view('admin.slider.index');
+        return $dataTable->render('admin.slider.index');
     }
 
     /**

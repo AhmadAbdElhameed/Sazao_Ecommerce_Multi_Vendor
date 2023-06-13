@@ -18,7 +18,8 @@
 
     <!-- Yajra cdn-->
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/css/components.css')}}">
@@ -34,65 +35,70 @@
     <!-- /END GA --></head>
 
 <body>
-<div id="app">
-    <div class="main-wrapper main-wrapper-1">
-        <div class="navbar-bg"></div>
-            <!-- Navbar Content -->
-            @include('admin.layouts.navbar')
-            <!-- Navbar Content -->
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+                <!-- Navbar Content -->
+                @include('admin.layouts.navbar')
+                <!-- Navbar Content -->
 
-            <!-- Sidebar Content -->
-            @include('admin.layouts.sidebar')
-            <!-- Sidebar Content -->
+                <!-- Sidebar Content -->
+                @include('admin.layouts.sidebar')
+                <!-- Sidebar Content -->
 
-            <!-- Main Content -->
-            <div class="main-content">
-                @yield('content')
-            </div>
-            <!-- Main Content -->
+                <!-- Main Content -->
+                <div class="main-content">
+                    @yield('content')
+                </div>
+                <!-- Main Content -->
 
-            <!-- Footer Content -->
-            @include('admin.layouts.footer')
-            <!-- Footer Content -->
+                <!-- Footer Content -->
+                @include('admin.layouts.footer')
+                <!-- Footer Content -->
+        </div>
     </div>
-</div>
 
-<!-- General JS Scripts -->
-<script src="{{asset('backend/assets/modules/jquery.min.js')}}"></script>
-<script src="{{asset('backend/assets/modules/popper.js')}}"></script>
-<script src="{{asset('backend/assets/modules/tooltip.js')}}"></script>
-<script src="{{asset('backend/assets/modules/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('backend/assets/modules/nicescroll/jquery.nicescroll.min.js')}}"></script>
-<script src="{{asset('backend/assets/modules/moment.min.js')}}"></script>
-<script src="{{asset('backend/assets/js/stisla.js')}}"></script>
+    <!-- General JS Scripts -->
+    <script src="{{asset('backend/assets/modules/jquery.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/popper.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/tooltip.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/nicescroll/jquery.nicescroll.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/moment.min.js')}}"></script>
+    <script src="{{asset('backend/assets/js/stisla.js')}}"></script>
 
-<!-- JS Libraies -->
-<script src="{{asset('backend/assets/modules/simple-weather/jquery.simpleWeather.min.js')}}"></script>
-<script src="{{asset('backend/assets/modules/chart.min.js')}}"></script>
-<script src="{{asset('backend/assets/modules/jqvmap/dist/jquery.vmap.min.js')}}"></script>
-<script src="{{asset('backend/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-<script src="{{asset('backend/assets/modules/summernote/summernote-bs4.js')}}"></script>
-<script src="{{asset('backend/assets/modules/chocolat/dist/js/jquery.chocolat.min.js')}}"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<!-- Page Specific JS File -->
-<script src="{{asset('backend/assets/js/page/index-0.js')}}"></script>
+    <!-- JS Libraies -->
+    <script src="{{asset('backend/assets/modules/simple-weather/jquery.simpleWeather.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/chart.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/jqvmap/dist/jquery.vmap.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/summernote/summernote-bs4.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/chocolat/dist/js/jquery.chocolat.min.js')}}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-<!-- Yajra cdn-->
-<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="{{asset('backend/assets/js/page/index-0.js')}}"></script>
 
-<!-- Template JS File -->
-<script src="{{asset('backend/assets/js/scripts.js')}}"></script>
-<script src="{{asset('backend/assets/js/custom.js')}}"></script>
-@include('sweetalert::alert')
+    <!-- Yajra cdn-->
+    <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
-<!--Toastr Errors-->
-<script>
-    @if($errors)
-        @foreach($errors->all() as $error)
-            toastr.error("{{$error}}")
-        @endforeach
-    @endif
-</script>
+    <!-- Template JS File -->
+    <script src="{{asset('backend/assets/js/scripts.js')}}"></script>
+    <script src="{{asset('backend/assets/js/custom.js')}}"></script>
+
+    @include('sweetalert::alert')
+
+    <!--Toastr Errors-->
+    <script>
+        @if($errors)
+            @foreach($errors->all() as $error)
+                toastr.error("{{$error}}")
+            @endforeach
+        @endif
+    </script>
+
+    @stack('scripts')
 </body>
 </html>
 
