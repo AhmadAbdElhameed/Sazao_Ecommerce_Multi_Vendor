@@ -31,3 +31,4 @@ Route::post('profile/update/password',[ProfileController::class,'updatePassword'
 //***     Slider Routes      ***//
 Route::get('slider',[SliderController::class,'index'])->name('slider.index');
 Route::get('slider/create',[SliderController::class,'create'])->name('slider.create');
+Route::post('slider/store',[SliderController::class,'store'])->name('slider.store');
