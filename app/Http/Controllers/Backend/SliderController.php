@@ -101,8 +101,11 @@ class SliderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id): \Illuminate\Http\RedirectResponse
     {
-        //
+        $slider = Slider::findOrFail($id);
+//        $slider->delete();
+        toastr('Slider Deleted Successfully', 'success');
+        return back();
     }
 }
