@@ -31,4 +31,6 @@ trait ImageUploadTrait
             return $path . '/' . $imageName;
         }
     }
+
+
 }

@@ -136,14 +136,14 @@
 
                             success: function(data){
 
-                                if(data.status == 'success'){
+                                if(data.status === 'success'){
                                     Swal.fire(
                                         'Deleted!',
                                         data.message,
                                         'success'
                                     )
                                     window.location.reload();
-                                }else if (data.status == 'error'){
+                                }else if (data.status === 'error'){
                                     Swal.fire(
                                         'Cant Delete',
                                         data.message,

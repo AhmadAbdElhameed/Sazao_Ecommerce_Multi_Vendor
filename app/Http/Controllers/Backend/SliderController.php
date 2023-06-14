@@ -95,17 +95,18 @@ class SliderController extends Controller
             'status' => $request->status
         ]);
         toastr()->success("Slider Updated Successfully!");
-        return redirect()->route('admin.slider.index');
+        return redirect(route('admin.slider.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): \Illuminate\Http\RedirectResponse
+    public function destroy(string $id): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Foundation\Application|\Illuminate\Http\Response
     {
         $slider = Slider::findOrFail($id);
-//        $slider->delete();
-        toastr('Slider Deleted Successfully', 'success');
-        return back();
+        $this->deleteImage("/uploads/sliders/".$slider->banner);
+        $slider->delete();
+
+        return response(['status' => 'success' , 'message' => 'Slider deleted successfully!']);
     }
 }
