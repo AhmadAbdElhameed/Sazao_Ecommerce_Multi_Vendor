@@ -32,3 +32,6 @@ Route::post('profile/update/password',[ProfileController::class,'updatePassword'
 Route::get('slider',[SliderController::class,'index'])->name('slider.index');
 Route::get('slider/create',[SliderController::class,'create'])->name('slider.create');
 Route::post('slider/store',[SliderController::class,'store'])->name('slider.store');
+Route::delete('slider/{slider}',[SliderController::class,'destroy'])->name('slider.destroy');
+Route::put('slider/{slider}',[SliderController::class,'update'])->name('slider.update');
+Route::get('slider/{slider}/edit',[SliderController::class,'edit'])->name('slider.edit');

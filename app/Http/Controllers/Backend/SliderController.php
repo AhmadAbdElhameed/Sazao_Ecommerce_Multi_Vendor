@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\SlidersDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Slider\StoreSliderRequest;
+use App\Http\Requests\Admin\Slider\UpdateSliderRequest;
+use App\Http\Traits\ImageTrait;
 use App\Http\Traits\ImageUploadTrait;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
-    use ImageUploadTrait;
+    use ImageUploadTrait , ImageTrait;
     /**
      * Display a listing of the resource.
      */
@@ -20,9 +23,9 @@ class SliderController extends Controller
     public function __construct(Slider $slider){
         $this->sliderModel = $slider;
     }
-    public function index()
+    public function index(SlidersDataTable $dataTable)
     {
-        return view('admin.slider.index');
+        return $dataTable->render('admin.slider.index');
     }
 
     /**
@@ -40,7 +43,8 @@ class SliderController extends Controller
     {
 
         //* Handle upload image *//
-        $image_path = $this->uploadImage($request ,'banner','uploads');
+//        $image_path = $this->uploadImage($request ,'banner','uploads');
+        $image_path = $this->uploadImage2($request->banner, $this->sliderModel::PATH);
 
         $this->sliderModel::create([
             'banner' =>$image_path,
@@ -67,24 +71,42 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Slider $slider)
     {
-        //
+        return view('admin.slider.edit',compact('slider'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateSliderRequest $request, Slider $slider)
     {
-        //
+        if ($request->banner) {
+            $image_path = $this->uploadImage2($request->banner, $this->sliderModel::PATH, $slider->getRawOriginal('banner'));
+        }
+
+        $slider->update([
+            'banner' =>$image_path ?? $slider->getRawOriginal('banner'),
+            'type' =>$request->type,
+            'title' => $request->title,
+            'starting_price' => $request->starting_price,
+            'btn_url' => $request->btn_url,
+            'serial' => $request->serial,
+            'status' => $request->status
+        ]);
+        toastr()->success("Slider Updated Successfully!");
+        return redirect(route('admin.slider.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Foundation\Application|\Illuminate\Http\Response
     {
-        //
+        $slider = Slider::findOrFail($id);
+        $this->deleteImage("/uploads/sliders/".$slider->banner);
+        $slider->delete();
+
+        return response(['status' => 'success' , 'message' => 'Slider deleted successfully!']);
     }
 }
