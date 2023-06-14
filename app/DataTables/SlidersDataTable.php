@@ -28,10 +28,19 @@ class SlidersDataTable extends DataTable
 
                 return $editBtn . $deleteBtn;
             })
+            ->addColumn('status', function($query){
+                $active = "<i class='badge badge-success'>Active</i>";
+                $inActive = "<i class='badge badge-danger'>InActive</i>";
+                if($query->status == 1){
+                    return $active;
+                }else{
+                    return $inActive;
+                }
+            })
             ->addColumn('banner',function ($query){
                 $img = "<img width='100px' src='".asset('uploads/sliders/'.$query->banner)."'></img>";
                 return $img;
-            })->rawColumns(['banner','action'])
+            })->rawColumns(['banner','action','status'])
             ->setRowId('id');
     }
 
